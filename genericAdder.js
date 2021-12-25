@@ -57,7 +57,7 @@ function pi_sum(a, b) {
 function genericAdder(a,b,additionRelation,incrementer){
     return a > b
            ? 0
-           : additionRelation(a,b) + genericAdder(incrementer(a,b), b);
+           : additionRelation(a,b) + genericAdder(incrementer(a,b), b, additionRelation,incrementer);
     /*
         
         We are passing both the available parameters while calling the inner functions because we di
