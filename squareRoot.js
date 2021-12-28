@@ -25,7 +25,7 @@ function conditional(predicate, then_clause, else_clause) {
 
 function squareRoot(num,guess=1,tolerance=0.001){
 
-    // return is_goodEnough(number,guess,tolerance)?guess:squareRoot(number,average(number,guess),tolerance);
+    return is_goodEnough(num,guess,tolerance)?guess:squareRoot(num,average(num,guess),tolerance);
 
     /*
 
@@ -41,7 +41,7 @@ function squareRoot(num,guess=1,tolerance=0.001){
 
 
 
-    return conditional(is_goodEnough(num,guess,tolerance),guess,squareRoot(num,average(num,guess)));
+    // return conditional(is_goodEnough(num,guess,tolerance),guess,squareRoot(num,average(num,guess)));
 }
 
 function average(num,guess){
@@ -55,4 +55,14 @@ function is_goodEnough(num,guess,tolerance){
 }
 
 
-console.log(squareRoot(5));
+/*
+
+    As the tolerance value is more than the value of the number whose square root is to be calculated
+    we see that the algorithm fails miserably for the value of 0.005.
+
+    It will also fail for very large numbers because when guess becomes significanlty large
+    the value of guess*guess will overflow the available precision and we will get a wrong answer.
+
+*/
+
+console.log(squareRoot(0.0005));
